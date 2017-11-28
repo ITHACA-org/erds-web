@@ -5,11 +5,11 @@ var forecast_hours = [24, 72, 144];
 var markersArray = [];
 
 // Top level method, it handles the events fired by changing tab on alerts panel
-function updateAlerts(){
+/**function updateAlerts(){
   var filter = document.getElementById("alerts_filter").value;
   displayAlertsOverThreshold(filter);
-  updateMarkers();
-}
+  updateMarkers();  
+} */
 
 /**
  * Updates DOM with data in the current filter option
@@ -17,7 +17,7 @@ function updateAlerts(){
  * @param {number} alert_threshold hashes the filter level, starting from 0 represents the timespan chosen in the filter on UI
  */
 function displayAlertsOverThreshold(alert_threshold){
-  $.getJSON( "static/json/textual_flooding_results.JSON", function( data ) {
+  $.getJSON( "http://erds.ithacaweb.org/static/json/textual_flooding_results.JSON", function( data ) {
     table_data = data;
         
     if(thresholds_data == null){
@@ -220,7 +220,7 @@ function updateMarkers(){
   forecast[1] = document.getElementById("flooded_population_h72").checked;
   forecast[2] = document.getElementById("flooded_population_h144").checked;
 
-  $.getJSON( "static/json/geometry_results.JSON", function( centroids ) {
+  $.getJSON( "http://erds.ithacaweb.org/static/json/geometry_results.JSON", function( centroids ) {
     centroids_data = centroids;    
     var popupOptions;
     for(h = 0; h < forecast.length; h++){
