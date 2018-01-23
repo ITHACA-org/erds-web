@@ -106,9 +106,9 @@
                 <ul class="layers">
                   <script>
                     var gpm_cum_array = new Array("last_cumulated_12h_gpm", "last_cumulated_24h_gpm", "last_cumulated_48h_gpm", "last_cumulated_72h_gpm", "last_cumulated_96h_gpm", "last_cumulated_120h_gpm", "last_cumulated_144h_gpm");
-                    var h = new Array("12h", "24h", "48h", "72h", "96h", "120h", "144h");
+                    var h = new Array("012h", "024h", "048h", "072h", "096h", "120h", "144h");
                     for (var i = 0; i < gpm_cum_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gpm_cum_array[i]+'" autocomplete="off"></input><span>NRT '+ h[i]+'</span></label><a href="/data/cumulated_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gpm_cum_array[i]+'" autocomplete="off"></input><span>NRT '+ h[i]+'</span></label><a href="/gpm_data/precip_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
                   </script>
                 </ul>
