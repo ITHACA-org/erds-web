@@ -1,3 +1,7 @@
 http://5.9.20.151/geoserver/erds/wms?
 REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=erds:precip_072h&
 LEGEND_OPTIONS=forceRule:true;dx:10;dy:0.2;mx:0.1
+
+http://5.9.20.151/geoserver/erds/wms?
+REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=erds:precip_024h&
+STYLE=tribute_precip&LEGEND_OPTIONS=forceRule:true;dx:10;dy:0.2;mx:0.1
