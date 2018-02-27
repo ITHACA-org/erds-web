@@ -87,7 +87,7 @@
                     var gfs_cum_array = new Array("last_cumulated_24h_forecast", "last_cumulated_48h_forecast", "last_cumulated_72h_forecast", "last_cumulated_96h_forecast", "last_cumulated_120h_forecast", "last_cumulated_144h_forecast");
                     var h = new Array("24", "48", "72", "96", "120", "144");
                     for (var i=0; i < gfs_cum_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gfs_cum_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/data/apcp_cumulated_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gfs_cum_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/apcp_cumulated_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
                   </script>
                 </ul>
@@ -129,7 +129,7 @@
                     var gfs_alert_array = new Array("forecast_alert_grid_h24", "forecast_alert_grid_h48", "forecast_alert_grid_h72", "forecast_alert_grid_h96", "forecast_alert_grid_h120", "forecast_alert_grid_h144");
                     var h = new Array("24", "48", "72", "96", "120", "144");
                     for (var i = 0; i < gfs_alert_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gfs_alert_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/data/gfs_alert_h'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gfs_alert_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/gfs_alert_h'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
                   </script>
                 </ul>
@@ -223,7 +223,7 @@
              </div>
            </div> -->
 		   <!-- Panel Eight Overlays -->
-		   <div class="panel panel-default">
+<!--		   <div class="panel panel-default">
 		     <div class="panel-heading" role="tab" id="headingEight">
 			   <h4 class="panel-title">
 			     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Overlays</a>
@@ -237,6 +237,7 @@
                </div>
              </div>
            </div>
+-->
 		   <!-- End of panels -->
          </div>
        </div>
@@ -261,9 +262,9 @@
          <h1>Settings</h1>
          <h2>Map Legend</h2>
          <h3>Alerts</h3>
-         <p><img src="http://www.ithacaweb.org/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&STRICT=false&style=erds_alerts" /></p>
+         <p><img src="http://5.9.20.151/geoserver/erds/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=erds:alerts_072h&LEGEND_OPTIONS=forceRule:true;dx:10;dy:0.2;mx:0.1" /></p>
          <h3>Cumulated Rainfall</h3>
-         <p><img src="http://www.ithacaweb.org/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&STRICT=false&style=erds_cumulated" /></p>
+         <p><img src="http://5.9.20.151/geoserver/erds/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=erds:precip_072h&LEGEND_OPTIONS=forceRule:true;dx:10;dy:0.2;mx:0.1" /></p>
        </div>
      </div>
    </div>
@@ -323,12 +324,12 @@
     trmm_alert_admin_h120.setZIndex(2);
     trmm_alert_admin_h144.setZIndex(2);  */
 
-    var forecast_alert_grid_h24  = new L.tileLayer.wms(geos_alert_old, {layers: 'erds_alerts:gfs_alert_24h', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h48  = new L.tileLayer.wms(geos_alert_old, {layers: 'erds_alerts:gfs_alert_48h', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h72  = new L.tileLayer.wms(geos_alert_old, {layers: 'erds_alerts:gfs_alert_72h', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h96  = new L.tileLayer.wms(geos_alert_old, {layers: 'erds_alerts:gfs_alert_96h', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h120 = new L.tileLayer.wms(geos_alert_old, {layers: 'erds_alerts:gfs_alert_120h', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h144 = new L.tileLayer.wms(geos_alert_old, {layers: 'erds_alerts:gfs_alert_144h', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h24  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h24', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h48  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h48', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h72  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h72', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h96  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h96', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h120 = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h120', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h144 = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h144', format: 'image/png', transparent: true});
     forecast_alert_grid_h24.setZIndex(2);
     forecast_alert_grid_h48.setZIndex(2);
     forecast_alert_grid_h72.setZIndex(2);
@@ -336,12 +337,12 @@
     forecast_alert_grid_h120.setZIndex(2);
     forecast_alert_grid_h144.setZIndex(2);
 
-    var last_cumulated_24h_forecast  = new L.tileLayer.wms(geoserver_old, {layers: 'erds:apcp_cumulated_24h', format: 'image/png', transparent: true});
-    var last_cumulated_48h_forecast  = new L.tileLayer.wms(geoserver_old, {layers: 'erds:apcp_cumulated_48h', format: 'image/png', transparent: true});
-    var last_cumulated_72h_forecast  = new L.tileLayer.wms(geoserver_old, {layers: 'erds:apcp_cumulated_72h', format: 'image/png', transparent: true});
-    var last_cumulated_96h_forecast  = new L.tileLayer.wms(geoserver_old, {layers: 'erds:apcp_cumulated_96h', format: 'image/png', transparent: true});
-    var last_cumulated_120h_forecast = new L.tileLayer.wms(geoserver_old, {layers: 'erds:apcp_cumulated_120h', format: 'image/png', transparent: true});
-    var last_cumulated_144h_forecast = new L.tileLayer.wms(geoserver_old, {layers: 'erds:apcp_cumulated_144h', format: 'image/png', transparent: true});
+    var last_cumulated_24h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_24h', format: 'image/png', transparent: true});
+    var last_cumulated_48h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_48h', format: 'image/png', transparent: true});
+    var last_cumulated_72h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_72h', format: 'image/png', transparent: true});
+    var last_cumulated_96h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_96h', format: 'image/png', transparent: true});
+    var last_cumulated_120h_forecast = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_120h', format: 'image/png', transparent: true});
+    var last_cumulated_144h_forecast = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_144h', format: 'image/png', transparent: true});
     last_cumulated_24h_forecast.setZIndex(2);
     last_cumulated_48h_forecast.setZIndex(2);
     last_cumulated_72h_forecast.setZIndex(2);
@@ -371,7 +372,6 @@
     var gpm_alert_h96 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_096h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var gpm_alert_h120 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_120h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var gpm_alert_h144 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_144h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    var gpm_alert_h168 = new L.tileLayer.wms(geos_alert, {layers: 'erds_alerts:gpm_alert_168h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     gpm_alert_h12.setZIndex(2);
     gpm_alert_h24.setZIndex(2);
     gpm_alert_h48.setZIndex(2);
@@ -380,15 +380,6 @@
     gpm_alert_h120.setZIndex(2);
     gpm_alert_h144.setZIndex(2);
 
-    var erds_admin1 = new L.TileLayer('http://www.ithacaweb.org/geoserver/gwc/service/tms/1.0.0/overlays@EPSG:900913@png/{z}/{x}/{y}.png', {tms: true, maxZoom: 8, minZoom: 2});
-	erds_admin1.setZIndex(4);
-
-    var flooded_population_h24 = new L.tileLayer.wms(geoserver, {layers: 'erds:flooded_population_h24', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    var flooded_population_h72 = new L.tileLayer.wms(geoserver, {layers: 'erds:flooded_population_h72', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    var flooded_population_h144 = new L.tileLayer.wms(geoserver, {layers: 'erds:flooded_population_h144', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    flooded_population_h24.setZIndex(3);    
-    flooded_population_h72.setZIndex(3);
-    flooded_population_h144.setZIndex(3); 
 
     var overlays = {
       "last_cumulated_24h_forecast":last_cumulated_24h_forecast,
@@ -416,24 +407,7 @@
       "gpm_alert_h72":gpm_alert_h72,
       "gpm_alert_h96":gpm_alert_h96,
       "gpm_alert_h120":gpm_alert_h120,
-      "gpm_alert_h144":gpm_alert_h144,
-	  "erds_admin1":erds_admin1
-  /** "gfs_alert_admin_h24":gfs_alert_admin_h24,
-      "gfs_alert_admin_h48":gfs_alert_admin_h48,
-      "gfs_alert_admin_h72":gfs_alert_admin_h72,
-      "gfs_alert_admin_h96":gfs_alert_admin_h96,
-      "gfs_alert_admin_h120":gfs_alert_admin_h120,
-      "gfs_alert_admin_h144":gfs_alert_admin_h144,
-      "trmm_alert_admin_h24":trmm_alert_admin_h24,
-      "trmm_alert_admin_h48":trmm_alert_admin_h48,
-      "trmm_alert_admin_h72":trmm_alert_admin_h72,
-      "trmm_alert_admin_h96":trmm_alert_admin_h96,
-      "trmm_alert_admin_h120":trmm_alert_admin_h120,
-      "trmm_alert_admin_h144":trmm_alert_admin_h144,
-      "trmm_alert_admin_h168":trmm_alert_admin_h168,
-      "flooded_population_h24":flooded_population_h24,
-      "flooded_population_h72":flooded_population_h72,
-      "flooded_population_h144":flooded_population_h144 */
+      "gpm_alert_h144":gpm_alert_h144
 	      };
     
    var sidebar = L.control.sidebar('sidebar').addTo(map);
