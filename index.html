@@ -87,7 +87,7 @@
                     var gfs_cum_array = new Array("last_cumulated_24h_forecast", "last_cumulated_48h_forecast", "last_cumulated_72h_forecast", "last_cumulated_96h_forecast", "last_cumulated_120h_forecast", "last_cumulated_144h_forecast");
                     var h = new Array("24", "48", "72", "96", "120", "144");
                     for (var i=0; i < gfs_cum_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gfs_cum_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/data/apcp_cumulated_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gfs_cum_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/apcp_cumulated_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
                   </script>
                 </ul>
@@ -129,7 +129,7 @@
                     var gfs_alert_array = new Array("forecast_alert_grid_h24", "forecast_alert_grid_h48", "forecast_alert_grid_h72", "forecast_alert_grid_h96", "forecast_alert_grid_h120", "forecast_alert_grid_h144");
                     var h = new Array("24", "48", "72", "96", "120", "144");
                     for (var i = 0; i < gfs_alert_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gfs_alert_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/data/gfs_alert_h'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gfs_alert_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/gfs_alert_h'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
                   </script>
                 </ul>
