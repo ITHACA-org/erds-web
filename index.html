@@ -449,8 +449,9 @@
           <p>The Extreme Rainfall Detection System (ERDS) is the result of a research activity devoted to the monitoring and forecasting of extreme precipitation at global scale. Although a big effort is made in order to improve the reliability of the system, the data and information provided by ERDS are currently experimental and may not be accurate, especially if intended at local scale. The web site and the data contained within it are provided on 'as available' basis, services and data may be not updated and may be withdrawn at any time and without notice. ITHACA does not assume liability for any inaccuracies in the information provided and for failure of the software.</p>
           <div id="last_trmm"><p>Last analyzed GPM date: <span id="last_gpm_date">
             <script>
-              $("#last_gpm_date").load("/gpm_data/update.txt");
-              $("#last_gpm_date").html($("#last_gpm_date").html().substring(25,41));
+              $("#last_gpm_date").load("/gpm_data/update.txt", function() {
+                $("#last_gpm_date").html($("#last_gpm_date").html().substring(25,41));
+                });
             </script></span></p></div>
           <div id="last_gfs"><p>Last analyzed GFS date: <span id="last_gfs_date"><script> $("#last_gfs_date").load("www_last_analyzed_date_gfs.txt");</script></span></p></div>
         </div>
