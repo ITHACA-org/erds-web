@@ -450,7 +450,8 @@
           <div id="last_trmm"><p>Last analyzed GPM date: <span id="last_gpm_date">
             <script>
               $("#last_gpm_date").load("/gpm_data/update.txt", function() {
-                $("#last_gpm_date").html($("#last_gpm_date").html().substring(25,41));
+                var d = new Date($("#last_gpm_date").html().substring(25,41));
+                $("#last_gpm_date").html(d.toDateString());
                 });
             </script></span></p></div>
           <div id="last_gfs"><p>Last analyzed GFS date: <span id="last_gfs_date"><script> $("#last_gfs_date").load("www_last_analyzed_date_gfs.txt");</script></span></p></div>
