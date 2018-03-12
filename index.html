@@ -105,8 +105,8 @@
               <div class="panel-body">
                 <ul class="layers">
                   <script>
-                    var gpm_cum_array = new Array("last_cumulated_12h_gpm", "last_cumulated_24h_gpm", "last_cumulated_48h_gpm", "last_cumulated_72h_gpm", "last_cumulated_96h_gpm", "last_cumulated_120h_gpm", "last_cumulated_144h_gpm");
-                    var h = new Array("012h", "024h", "048h", "072h", "096h", "120h", "144h");
+                    var gpm_cum_array = new Array("last_cumulated_12h_gpm", "last_cumulated_24h_gpm", "last_cumulated_48h_gpm", "last_cumulated_72h_gpm", "last_cumulated_96h_gpm");
+                    var h = new Array("012h", "024h", "048h", "072h", "096h");
                     for (var i = 0; i < gpm_cum_array.length; i++) {
                       document.write('<li><label><input type="checkbox" id="'+gpm_cum_array[i]+'" autocomplete="off"></input><span>NRT '+ h[i]+'</span></label><a href="/gpm_data/precip_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
@@ -147,8 +147,8 @@
               <div class="panel-body">
                 <ul class="layers">
                   <script>
-                    var gpm_alert_array = new Array("gpm_alert_h24", "gpm_alert_h48", "gpm_alert_h72", "gpm_alert_h96", "gpm_alert_h120", "gpm_alert_h144", "gpm_alert_h168");
-                    var h = new Array("024", "048", "072", "096", "120", "144", "168");
+                    var gpm_alert_array = new Array("gpm_alert_h12", "gpm_alert_h24", "gpm_alert_h48", "gpm_alert_h72", "gpm_alert_h96");
+                    var h = new Array("012", "024", "048", "072", "096");
                     for (var i = 0; i < gpm_alert_array.length; i++) {
                       document.write('<li><label><input type="checkbox" id="'+gpm_alert_array[i]+'" autocomplete="off"></input><span>NRT '+ h[i]+'h</span></label><a href="/gpm_data/alerts_'+h[i]+'h.tif" class="label label-default pull-right">TIFF</a></li>');
                      }
@@ -354,31 +354,23 @@
     var last_cumulated_48h_gpm  = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_048h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var last_cumulated_72h_gpm  = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_072h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var last_cumulated_96h_gpm  = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_096h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    var last_cumulated_120h_gpm = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_120h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    var last_cumulated_144h_gpm = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_144h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     last_cumulated_12h_gpm.setZIndex(2);
     last_cumulated_24h_gpm.setZIndex(2);
     last_cumulated_48h_gpm.setZIndex(2);
     last_cumulated_72h_gpm.setZIndex(2);
     last_cumulated_96h_gpm.setZIndex(2);
-    last_cumulated_120h_gpm.setZIndex(2);
-    last_cumulated_144h_gpm.setZIndex(2);
 
     var gpm_alert_h12 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_012h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var gpm_alert_h24 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_024h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var gpm_alert_h48 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_048h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var gpm_alert_h72 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_072h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var gpm_alert_h96 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_096h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    var gpm_alert_h120 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_120h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
-    var gpm_alert_h144 = new L.tileLayer.wms(geos_alert, {layers: 'erds:alerts_144h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
+
     gpm_alert_h12.setZIndex(2);
     gpm_alert_h24.setZIndex(2);
     gpm_alert_h48.setZIndex(2);
     gpm_alert_h72.setZIndex(2);
     gpm_alert_h96.setZIndex(2);
-    gpm_alert_h120.setZIndex(2);
-    gpm_alert_h144.setZIndex(2);
-
 
     var overlays = {
       "last_cumulated_24h_forecast":last_cumulated_24h_forecast,
@@ -392,21 +384,17 @@
       "last_cumulated_48h_gpm":last_cumulated_48h_gpm,
       "last_cumulated_72h_gpm":last_cumulated_72h_gpm,
       "last_cumulated_96h_gpm":last_cumulated_96h_gpm,
-      "last_cumulated_120h_gpm":last_cumulated_120h_gpm,
-      "last_cumulated_144h_gpm":last_cumulated_144h_gpm,
       "forecast_alert_grid_h24":forecast_alert_grid_h24,
       "forecast_alert_grid_h48":forecast_alert_grid_h48,
       "forecast_alert_grid_h72":forecast_alert_grid_h72,
       "forecast_alert_grid_h96":forecast_alert_grid_h96,
       "forecast_alert_grid_h120":forecast_alert_grid_h120,
       "forecast_alert_grid_h144":forecast_alert_grid_h144,     
- 	  "gpm_alert_h12":gpm_alert_h12,    
-	  "gpm_alert_h24":gpm_alert_h24,
+  	  "gpm_alert_h12":gpm_alert_h12,    
+  	  "gpm_alert_h24":gpm_alert_h24,
       "gpm_alert_h48":gpm_alert_h48,
       "gpm_alert_h72":gpm_alert_h72,
       "gpm_alert_h96":gpm_alert_h96,
-      "gpm_alert_h120":gpm_alert_h120,
-      "gpm_alert_h144":gpm_alert_h144
 	      };
     
    var sidebar = L.control.sidebar('sidebar').addTo(map);
