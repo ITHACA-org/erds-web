@@ -163,14 +163,14 @@
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Alert Near-Real-Time</a>
               </h4>
             </div>
-            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
               <div class="panel-body">
                 <ul class="layers">
                   <script>
                     var gpm_alert_array = new Array("gpm_alert_h12", "gpm_alert_h24", "gpm_alert_h48", "gpm_alert_h72", "gpm_alert_h96");
                     var h = new Array("012", "024", "048", "072", "096");
                     for (var i = 0; i < gpm_alert_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gpm_alert_array[i]+'" autocomplete="off"></input><span>NRT '+ h[i]+'h</span></label><a href="/gpm_data/alerts_'+h[i]+'h.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gpm_alert_array[i]+'" autocomplete="off" checked></input><span>NRT '+ h[i]+'h</span></label><a href="/gpm_data/alerts_'+h[i]+'h.tif" class="label label-default pull-right">TIFF</a></li>');
                      }
                    </script>
                  </ul>
@@ -418,6 +418,11 @@
 	      };
     
    var sidebar = L.control.sidebar('sidebar').addTo(map);
+   map.addLayer(gpm_alert_h12);
+   map.addLayer(gpm_alert_h24);
+   map.addLayer(gpm_alert_h48);
+   map.addLayer(gpm_alert_h72);
+   map.addLayer(gpm_alert_h96);
 	//map.addLayer(erds_admin1);
   // map.addLayer(flooded_population_h24); 
 
