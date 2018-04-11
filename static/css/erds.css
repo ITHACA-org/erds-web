@@ -2,7 +2,7 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 body {
-  color: #212121;
+  color: #3f4959;
   font-family: "PT Sans", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0; }
@@ -20,7 +20,7 @@ a:hover {
   text-decoration: underline; }
 
 h1, h2, h3, h4 {
-  color: #212121;
+  color: #3f4959;
   font-weight: 700; }
 
 h2 {
@@ -46,7 +46,7 @@ h3 {
   bottom: 0; }
 
 .sidebar-tabs {
-  background-color: #212121; }
+  background-color: #3f4959; }
 
 .sidebar-tabs > li > a {
   color: #606C79; }

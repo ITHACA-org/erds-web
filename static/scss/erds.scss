@@ -1,12 +1,16 @@
-html {-webkit-font-smoothing: antialiased;}
+@import "variables";
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
 body {
-  color: #212121;
+  color: $body-color;
   font-family: "PT Sans", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-a {color: #007cd8;
+a {color: $link-color;
    text-decoration: none;
    -webkit-transition: background-color .4s linear, color .4s linear;
       -moz-transition: background-color .4s linear, color .4s linear;
@@ -15,13 +19,13 @@ a {color: #007cd8;
            transition: background-color .4s linear, color .4s linear
 }
 a:hover {text-decoration: underline}
-h1, h2, h3, h4 {color: #212121; font-weight: 700}
+h1, h2, h3, h4 {color: $body-color; font-weight: 700}
 h2 {clear:both;font-size: 1.5em;}
 h3 {font-size: 1em; margin-top: 0.5em; margin-bottom: 0.5em}
 .list-unstyled {list-style: none; padding-left:0}
 #map {background:white}
 .sidebar {border-radius: 0; left: 0; top: 0; bottom:0}
-.sidebar-tabs {background-color: #212121;}
+.sidebar-tabs {background-color: $body-color;}
 .sidebar-tabs > li > a {color: #606C79}
 .sidebar-tabs > li > a:hover {background-color: #424242}
 .sidebar-tabs > li.active {background-color: #007cd8}
