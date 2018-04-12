@@ -1,0 +1,7 @@
+@mixin link-transition($time) {
+  -webkit-transition: background-color $time linear, color $time linear;
+     -moz-transition: background-color $time linear, color $time linear;
+       -o-transition: background-color $time linear, color $time linear;
+      -ms-transition: background-color $time linear, color $time linear;
+          transition: background-color $time linear, color $time linear;
+}

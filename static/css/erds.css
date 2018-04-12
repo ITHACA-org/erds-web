@@ -10,14 +10,13 @@ body {
 a {
   color: #007cd8;
   text-decoration: none;
-  -webkit-transition: background-color .4s linear, color .4s linear;
-  -moz-transition: background-color .4s linear, color .4s linear;
-  -o-transition: background-color .4s linear, color .4s linear;
-  -ms-transition: background-color .4s linear, color .4s linear;
+  -webkit-transition: background-color 0.4s linear, color 0.4s linear;
+  -moz-transition: background-color 0.4s linear, color 0.4s linear;
+  -o-transition: background-color 0.4s linear, color 0.4s linear;
+  -ms-transition: background-color 0.4s linear, color 0.4s linear;
   transition: background-color 0.4s linear, color 0.4s linear; }
-
-a:hover {
-  text-decoration: underline; }
+  a:hover {
+    text-decoration: underline; }
 
 h1, h2, h3, h4 {
   color: #3f4959;
