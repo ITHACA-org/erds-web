@@ -24,17 +24,10 @@ h1, h2, h3, h4 {
   font-weight: 800; }
 
 h2 {
-  clear: both;
-  font-size: 1.5em; }
+  font-size: 2rem; }
 
 h3 {
-  font-size: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em; }
-
-.list-unstyled {
-  list-style: none;
-  padding-left: 0; }
+  font-size: 1.75rem; }
 
 #map {
   background: white; }
@@ -103,7 +96,7 @@ h3 {
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #fff;
   overflow-x: hidden;
   overflow-y: auto; }
 
@@ -111,7 +104,7 @@ h3 {
   display: none;
   right: 0;
   box-sizing: border-box;
-  padding: 10px 20px; }
+  padding: 0 2rem; }
 
 .sidebar-pane.active {
   display: block; }
@@ -157,22 +150,16 @@ h3 {
   .sidebar-map .leaflet-left {
     left: 470px; } }
 /* End of Sidebar */
-.sidebar-pane {
-  padding: 0 2em; }
-
 .forecast, .near-real-time, .alert-district {
   float: left;
   width: 180px; }
 
 ul.layers {
   list-style-type: none;
-  padding: 0px; }
-
-ul.layers li {
-  font-size: 0.875em; }
+  padding: 0; }
 
 ul.layers li > label {
-  font-weight: normal; }
+  font-weight: 400; }
 
 input[type=checkbox] {
   margin-right: 0.5em; }
@@ -310,9 +297,7 @@ a.leaflet-popup-close-button {
 #table_millimiters {
   font-size: 10px; }
 
-.leaflet-container {
-  font-family: "PT Sans", sans serif; }
-
+/* Remove Modal */
 .modal {
   z-index: 2050; }
 
@@ -331,8 +316,9 @@ a.leaflet-popup-close-button {
 .modal-footer {
   border: 0; }
 
+/* ---- End of Modal ----- */
 .label-default {
-  background: #aaa;
+  background: #9ba2b0;
   font-size: 10px;
   margin-left: 5px; }
 
