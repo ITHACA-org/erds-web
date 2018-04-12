@@ -18,13 +18,12 @@
   </script>
   <script type="text/javascript" src="static/js/get_table_data.js"></script>
   <link href="static/css/bootstrap.min.css" rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Khula:300,400,800' rel='stylesheet' type='text/css'>
   <link href="static/css/font-awesome.min.css" rel="stylesheet">
-    
+
   <link rel="stylesheet" href="static/css/leaflet.css" />
-  <link rel="stylesheet" href="static/css/leaflet-sidebar.css" />
   <link rel="stylesheet" href="static/css/erds.css" />
-    
+
   <style>
       html, body, #map {height: 100%;}
   </style>
@@ -56,17 +55,17 @@
     </ul>
 
     <!-- Tab panes -->
-	
+
     <div class="sidebar-content">
-	  
+
 	  <!-- Home -->
-		  
+
       <div class="sidebar-pane active" id="home">
-        <h1>ITHACA ERDS</h1>
+        <h1>ITHACA <span style="font-weight:300">ERDS</span></h1>
         <h2>Extreme Rainfall Detection System</h2>
         <p>The Extreme Rainfall Detection System (ERDS), developed and implemented by ITHACA, is a service for the monitoring and forecasting of exceptional rainfall events, with a nearly global geographic coverage.</p>
         <p><a href="http://ithacaweb.org/projects/erds/">More info</a></p>
-        <h3>Last analyzed GPM date: 
+        <h3>Last analyzed GPM date:
           <span id="last_gpm_date">
           <script>
             function pad(n) {
@@ -87,9 +86,9 @@
         <h2>Disclaimer</h2>
         <p>The Extreme Rainfall Detection System (ERDS) is the result of a research activity devoted to the monitoring and forecasting of extreme precipitation at global scale. Although a big effort is made in order to improve the reliability of the system, the data and information provided by ERDS are currently experimental and may not be accurate, especially if intended at local scale. The web site and the data contained within it are provided on 'as available' basis, services and data may be not updated and may be withdrawn at any time and without notice. ITHACA does not assume liability for any inaccuracies in the information provided and for failure of the software.</p>
       </div>
-	  
+
 	  <!-- Layers -->
-	  
+
       <div class="sidebar-pane" id="layers">
         <h1>Layers</h1>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -261,9 +260,9 @@
 		   <!-- End of panels -->
          </div>
        </div>
-							  
+
        <!-- Alerts -->
-			
+
    <!--   <div class="sidebar-pane" id="warnings">
          <h1>Alerts</h1>
          <p>Show <select id="alerts_filter" onChange="updateAlerts()">
@@ -272,12 +271,12 @@
                    <option value="3">at least level 3</option>
                  </select> alerts</p>
          <div id="alerts_table_content">  -->
-         <!-- Javascript will fill this space -->    
-    <!--  </div> 
+         <!-- Javascript will fill this space -->
+    <!--  </div>
        </div>    -->
-	   
+
 	   <!-- Settings -->
-			
+
        <div class="sidebar-pane" id="settings">
          <h1>Settings</h1>
          <h2>Map Legend</h2>
@@ -288,11 +287,11 @@
        </div>
      </div>
    </div>
-	
+
 	<!-- Map -->
 
     <div id="map" class="sidebar-map"></div>
-	
+
 	<!-- Scripts -->
 
     <script src="static/js/leaflet.js"></script>
@@ -304,7 +303,7 @@
         var geos_alert = "http://"+host+":"+port+"/geoserver/erds/wms";
         var geoserver_old = "http://ithacaweb.org/geoserver/gwc/service/wms/";
         var geos_alert_old = "http://ithacaweb.org/geoserver/erds_alerts/wms/";
-		
+
 
         var map = L.map('map', {layers:world});
         map.setView([-10, -60], 2);
@@ -409,14 +408,14 @@
       "forecast_alert_grid_h72":forecast_alert_grid_h72,
       "forecast_alert_grid_h96":forecast_alert_grid_h96,
       "forecast_alert_grid_h120":forecast_alert_grid_h120,
-      "forecast_alert_grid_h144":forecast_alert_grid_h144,     
-  	  "gpm_alert_h12":gpm_alert_h12,    
+      "forecast_alert_grid_h144":forecast_alert_grid_h144,
+  	  "gpm_alert_h12":gpm_alert_h12,
   	  "gpm_alert_h24":gpm_alert_h24,
       "gpm_alert_h48":gpm_alert_h48,
       "gpm_alert_h72":gpm_alert_h72,
       "gpm_alert_h96":gpm_alert_h96,
 	      };
-    
+
    var sidebar = L.control.sidebar('sidebar').addTo(map);
    map.addLayer(gpm_alert_h12);
    map.addLayer(gpm_alert_h24);
@@ -424,7 +423,7 @@
    map.addLayer(gpm_alert_h72);
    map.addLayer(gpm_alert_h96);
 	//map.addLayer(erds_admin1);
-  // map.addLayer(flooded_population_h24); 
+  // map.addLayer(flooded_population_h24);
 
     //function for add and remove layer according to the name of layer checked
 

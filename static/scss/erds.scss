@@ -5,7 +5,7 @@ html {
 }
 body {
   color: $body-color;
-  font-family: "PT Sans", Arial, Helvetica, sans-serif;
+  font-family: $font-family-sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -19,17 +19,176 @@ a {color: $link-color;
            transition: background-color .4s linear, color .4s linear
 }
 a:hover {text-decoration: underline}
-h1, h2, h3, h4 {color: $body-color; font-weight: 700}
+h1, h2, h3, h4 {
+  color: $body-color;
+  font-weight: $headings-font-weight;
+}
 h2 {clear:both;font-size: 1.5em;}
 h3 {font-size: 1em; margin-top: 0.5em; margin-bottom: 0.5em}
 .list-unstyled {list-style: none; padding-left:0}
-#map {background:white}
-.sidebar {border-radius: 0; left: 0; top: 0; bottom:0}
-.sidebar-tabs {background-color: $body-color;}
-.sidebar-tabs > li > a {color: #606C79}
-.sidebar-tabs > li > a:hover {background-color: #424242}
-.sidebar-tabs > li.active {background-color: #007cd8}
-.sidebar-tabs > li.active > a {color: white}
+
+#map {
+  background:white
+}
+
+/* Sidebar */
+
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0;
+  overflow: hidden;
+  width: 100%;
+  z-index: 2000;
+}
+.sidebar.collapsed {
+  width: 40px;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: width 500ms;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar {
+    width: 305px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar {
+    width: 390px;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 460px;
+  }
+}
+
+.sidebar-tabs {
+  background-color: $body-color;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  li {
+    color: $white;
+    font-size: 12pt;
+    height: 40px;
+    overflow: hidden;
+    transition: all 80ms;
+    width: 100%;
+    a {
+    color: $white;
+    display: inline-table;
+    height: 100%;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+      &:hover {
+        background-color: $link-color;
+      }
+    }
+  }
+  li.active {
+    background-color: $link-color;
+  }
+}
+
+.sidebar-content {
+  position: absolute;
+  left: 40px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sidebar-pane {
+  display: none;
+  right: 0;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+.sidebar-pane.active {
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar-pane {
+    width: 265px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-pane {
+    width: 350px;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar-pane {
+    width: 420px;
+  }
+}
+
+.sidebar-map {
+  margin-left: 40px;
+}
+@media (min-width: 768px) {
+  .sidebar-map {
+    margin-left: 0;
+  }
+}
+
+.sidebar {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+}
+.sidebar.leaflet-touch {
+    box-shadow: none;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .sidebar.leaflet-touch {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
+  .sidebar.collapsed ~ .sidebar-map .leaflet-left {
+    left: 50px;}
+  }
+
+@media (min-width: 768px) {
+  .sidebar-map .leaflet-left {
+    transition: left 500ms;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar-map .leaflet-left {
+    left: 315px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-map .leaflet-left {
+    left: 400px;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar-map .leaflet-left {
+    left: 470px;
+  }
+}
+
+/* End of Sidebar */
+
 .sidebar-pane {padding: 0 2em}
 .forecast, .near-real-time, .alert-district {float:left; width:180px}
 ul.layers {list-style-type: none; padding:0px}
@@ -39,7 +198,7 @@ input[type=checkbox] {margin-right: 0.5em}
 .nav-pills > li > a {font-weight: 700; padding: 5px 15px;}
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
   color: #fff;
-  background-color: #007cd8;
+  background-color: $link-color;
 }
 select {background: white; border: 1px solid #ddd; height: 30px; line-height: 30px;}
 .panel-group {margin-top: 15px}
