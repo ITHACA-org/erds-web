@@ -28,20 +28,6 @@
   <style>
       html, body, #map {height: 100%;}
   </style>
-<!--  <script type="text/javascript">
-    $(document).ready(function(){
-      $('#myModal').modal('show');
-    });
-  </script>
--->
- <!-- <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-70618707-1', 'auto');
-  ga('send', 'pageview');
-</script> -->
 
 </head>
 
@@ -82,8 +68,8 @@
               $("#last_gpm_date").html(gpm_date);
               });
           </script></span></h3>
-        <h3>Last analyzed GFS date: <span id="last_gfs_date"><script> $("#last_gfs_date").load("www_last_analyzed_date_gfs.txt");</script></span></h3>
-
+<!--<h3>Last analyzed GFS date: <span id="last_gfs_date"><script> $("#last_gfs_date").load("www_last_analyzed_date_gfs.txt");</script></span></h3>
+-->
         <h2>Disclaimer</h2>
         <p>The Extreme Rainfall Detection System (ERDS) is the result of a research activity devoted to the monitoring and forecasting of extreme precipitation at global scale. Although a big effort is made in order to improve the reliability of the system, the data and information provided by ERDS are currently experimental and may not be accurate, especially if intended at local scale. The web site and the data contained within it are provided on 'as available' basis, services and data may be not updated and may be withdrawn at any time and without notice. ITHACA does not assume liability for any inaccuracies in the information provided and for failure of the software.</p>
       </div>
@@ -104,8 +90,8 @@
               <div class="panel-body">
                 <ul class="layers">
                   <script>
-                    var gfs_cum_array = new Array("last_cumulated_24h_forecast", "last_cumulated_48h_forecast", "last_cumulated_72h_forecast", "last_cumulated_96h_forecast", "last_cumulated_120h_forecast", "last_cumulated_144h_forecast");
-                    var h = new Array("24", "48", "72", "96", "120", "144");
+                    var gfs_cum_array = new Array("last_cumulated_12h_forecast", "last_cumulated_24h_forecast", "last_cumulated_48h_forecast", "last_cumulated_72h_forecast", "last_cumulated_96h_forecast");
+                    var h = new Array("12", "24", "48", "72", "96");
                     for (var i=0; i < gfs_cum_array.length; i++) {
                       document.write('<li><label><input type="checkbox" id="'+gfs_cum_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/apcp_cumulated_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
@@ -146,8 +132,8 @@
               <div class="panel-body">
                 <ul class="layers">
                   <script>
-                    var gfs_alert_array = new Array("forecast_alert_grid_h24", "forecast_alert_grid_h48", "forecast_alert_grid_h72", "forecast_alert_grid_h96", "forecast_alert_grid_h120", "forecast_alert_grid_h144");
-                    var h = new Array("24", "48", "72", "96", "120", "144");
+                    var gfs_alert_array = new Array("forecast_alert_grid_h12", "forecast_alert_grid_h24", "forecast_alert_grid_h48", "forecast_alert_grid_h72", "forecast_alert_grid_h96");
+                    var h = new Array("12", "24", "48", "72", "96");
                     for (var i = 0; i < gfs_alert_array.length; i++) {
                       document.write('<li><label><input type="checkbox" id="'+gfs_alert_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/gfs_alert_h'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
@@ -177,104 +163,8 @@
                </div>
              </div>
            </div>
-           <!-- Panel Five -->
-<!--		   <div class="panel panel-default">
-             <div class="panel-heading" role="tab" id="headingFive">
-               <h4 class="panel-title">
-                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Alert Forecast (District)</a>
-               </h4>
-             </div>
-             <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-               <div class="panel-body">
-                 <ul class="layers">
-                   <script>
-                     var gfs_alert_dist_array = new Array("gfs_alert_admin_h24", "gfs_alert_admin_h48", "gfs_alert_admin_h72", "gfs_alert_admin_h96", "gfs_alert_admin_h120", "gfs_alert_admin_h144");
-                     var h = new Array("24h", "48h", "72h", "96h", "120h", "144h");
-                       for (var i = 0; i < gfs_alert_dist_array.length; i++) {
-                         document.write('<li><label><input type="checkbox" id="'+gfs_alert_dist_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'</span></label></li>');
-                          }
-                   </script>
-                 </ul>
-               </div>
-             </div>
-           </div> -->
-           <!-- Panel Six -->
-<!--		   <div class="panel panel-default">
-             <div class="panel-heading" role="tab" id="headingSix">
-               <h4 class="panel-title">
-                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Alert Near-Real-Time (District)</a>
-               </h4>
-             </div>
-             <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-               <div class="panel-body">
-                 <ul class="layers">
-                   <script>
-                     var trmm_alert_dist_array = new Array("trmm_alert_admin_h24", "trmm_alert_admin_h48", "trmm_alert_admin_h72", "trmm_alert_admin_h96", "trmm_alert_admin_h120", "trmm_alert_admin_h144", "trmm_alert_admin_h168");
-                     var h = new Array("24h", "48h", "72h", "96h", "120h", "144h", "168h");
-                     for (var i = 0; i < trmm_alert_dist_array.length; i++) {
-                       document.write('<li><label><input type="checkbox" id="'+trmm_alert_dist_array[i]+'" autocomplete="off"></input><span>NRT '+ h[i]+'</span></label></li>');
-                     }
-                   </script>
-                 </ul>
-               </div>
-             </div>
-           </div>   -->
-           <!-- Panel Seven -->
-<!--		   <div class="panel panel-default">
-             <div class="panel-heading" role="tab" id="headingSeven">
-               <h4 class="panel-title">
-                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Flooded Population Forecast</a>
-               </h4>
-             </div>
-             <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-               <div class="panel-body">
-                 <ul class="layers">
-                   <script>
-				     var flooded_pop_array = new Array("flooded_population_h24", "flooded_population_h72", "flooded_population_h144");
-				     var h = new Array("24h", "72h", "144h"); -->
-				     <!-- First checkbox is already checked when page is loaded -->
-<!--				     document.write('<li><label><input type="checkbox" id=flooded_population_h24 onChange="updateMarkers();" autocomplete="off" checked></input><span>FC24</span></label></li>');
-				     for (var i = 1; i < flooded_pop_array.length; i++){
-					 document.write('<li><label><input type="checkbox" id="'+flooded_pop_array[i]+'" onChange="updateMarkers();" autocomplete="off"></input><span>FC '+ h[i]+'</span></label></li>');
-				     }
-				   </script>
-                 </ul>
-               </div>
-             </div>
-           </div> -->
-		   <!-- Panel Eight Overlays -->
-<!--		   <div class="panel panel-default">
-		     <div class="panel-heading" role="tab" id="headingEight">
-			   <h4 class="panel-title">
-			     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Overlays</a>
-			   </h4>
-			 </div>
-		     <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-               <div class="panel-body">
-			     <ul class="layers">
-				   <li><label><input type="checkbox" id="erds_admin1" autocomplete="off"></input><span>Admin Labels</span></label></li>
-                 <ul>
-               </div>
-             </div>
-           </div>
--->
-		   <!-- End of panels -->
          </div>
        </div>
-							  
-       <!-- Alerts -->
-			
-   <!--   <div class="sidebar-pane" id="warnings">
-         <h1>Alerts</h1>
-         <p>Show <select id="alerts_filter" onChange="updateAlerts()">
-                   <option value="1" selected="selected">all</option>
-                   <option value="2">at least level 2</option>
-                   <option value="3">at least level 3</option>
-                 </select> alerts</p>
-         <div id="alerts_table_content">  -->
-         <!-- Javascript will fill this space -->    
-    <!--  </div> 
-       </div>    -->
 	   
 	   <!-- Settings -->
 			
@@ -299,12 +189,9 @@
     <script src="static/js/leaflet-sidebar.js"></script>
     <script>
 	    var host = "5.9.20.151";
-		var port = "80";
+  		var port = "80";
         var geoserver = "http://"+host+":"+port+"/geoserver/erds/wms";
         var geos_alert = "http://"+host+":"+port+"/geoserver/erds/wms";
-        var geoserver_old = "http://ithacaweb.org/geoserver/gwc/service/wms/";
-        var geos_alert_old = "http://ithacaweb.org/geoserver/erds_alerts/wms/";
-		
 
         var map = L.map('map', {layers:world});
         map.setView([-10, -60], 2);
@@ -316,60 +203,29 @@
           accessToken: 'pk.eyJ1IjoicGFvbG9wYXNxdWFsaSIsImEiOiJoVU9zSE9VIn0.O8Cehs_li5LA2aLurdEDJQ'
         }).addTo(map);
 
-  /**   var gfs_alert_admin_h24  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_alert_admin_h24', format: 'image/png', transparent: true});
-    var gfs_alert_admin_h48  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_alert_admin_h48', format: 'image/png', transparent: true});
-    var gfs_alert_admin_h72  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_alert_admin_h72', format: 'image/png', transparent: true});
-    var gfs_alert_admin_h96  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_alert_admin_h96', format: 'image/png', transparent: true});
-    var gfs_alert_admin_h120 = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_alert_admin_h120', format: 'image/png', transparent: true});
-    var gfs_alert_admin_h144 = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_alert_admin_h144', format: 'image/png', transparent: true});
-    gfs_alert_admin_h24.setZIndex(2);
-    gfs_alert_admin_h48.setZIndex(2);
-    gfs_alert_admin_h72.setZIndex(2);
-    gfs_alert_admin_h96.setZIndex(2);
-    gfs_alert_admin_h120.setZIndex(2);
-    gfs_alert_admin_h144.setZIndex(2);
-
-    var trmm_alert_admin_h24  = new L.tileLayer.wms(geoserver, {layers: 'erds:trmm_alert_admin_h24', format: 'image/png', transparent: true});
-    var trmm_alert_admin_h48  = new L.tileLayer.wms(geoserver, {layers: 'erds:trmm_alert_admin_h48', format: 'image/png', transparent: true});
-    var trmm_alert_admin_h72  = new L.tileLayer.wms(geoserver, {layers: 'erds:trmm_alert_admin_h72', format: 'image/png', transparent: true});
-    var trmm_alert_admin_h96  = new L.tileLayer.wms(geoserver, {layers: 'erds:trmm_alert_admin_h96', format: 'image/png', transparent: true});
-    var trmm_alert_admin_h120 = new L.tileLayer.wms(geoserver, {layers: 'erds:trmm_alert_admin_h120', format: 'image/png', transparent: true});
-    var trmm_alert_admin_h144 = new L.tileLayer.wms(geoserver, {layers: 'erds:trmm_alert_admin_h144', format: 'image/png', transparent: true});
-    var trmm_alert_admin_h168 = new L.tileLayer.wms(geoserver, {layers: 'erds:trmm_alert_admin_h168', format: 'image/png', transparent: true});
-    trmm_alert_admin_h24.setZIndex(2);
-    trmm_alert_admin_h48.setZIndex(2);
-    trmm_alert_admin_h72.setZIndex(2);
-    trmm_alert_admin_h96.setZIndex(2);
-    trmm_alert_admin_h120.setZIndex(2);
-    trmm_alert_admin_h144.setZIndex(2);  */
-
-    var forecast_alert_grid_h24  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h24', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h48  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h48', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h72  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h72', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h96  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h96', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h120 = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h120', format: 'image/png', transparent: true});
-    var forecast_alert_grid_h144 = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_alert_h144', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h12  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_apcp_alerts_012h', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h24  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_apcp_alerts_024h', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h48  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_apcp_alerts_048h', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h72  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_apcp_alerts_072h', format: 'image/png', transparent: true});
+    var forecast_alert_grid_h96  = new L.tileLayer.wms(geos_alert, {layers: 'erds:gfs_apcp_alerts_096h', format: 'image/png', transparent: true});
+    forecast_alert_grid_h12.setZIndex(2);
     forecast_alert_grid_h24.setZIndex(2);
     forecast_alert_grid_h48.setZIndex(2);
     forecast_alert_grid_h72.setZIndex(2);
     forecast_alert_grid_h96.setZIndex(2);
-    forecast_alert_grid_h120.setZIndex(2);
-    forecast_alert_grid_h144.setZIndex(2);
 
-    var last_cumulated_24h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_24h', format: 'image/png', transparent: true});
-    var last_cumulated_48h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_48h', format: 'image/png', transparent: true});
-    var last_cumulated_72h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_72h', format: 'image/png', transparent: true});
-    var last_cumulated_96h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_96h', format: 'image/png', transparent: true});
-    var last_cumulated_120h_forecast = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_120h', format: 'image/png', transparent: true});
-    var last_cumulated_144h_forecast = new L.tileLayer.wms(geoserver, {layers: 'erds:apcp_cumulated_144h', format: 'image/png', transparent: true});
+    var last_cumulated_12h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_apcp_accumulated_012h', format: 'image/png', transparent: true});
+    var last_cumulated_24h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_apcp_accumulated_024h', format: 'image/png', transparent: true});
+    var last_cumulated_48h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_apcp_accumulated_048h', format: 'image/png', transparent: true});
+    var last_cumulated_72h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_apcp_accumulated_072h', format: 'image/png', transparent: true});
+    var last_cumulated_96h_forecast  = new L.tileLayer.wms(geoserver, {layers: 'erds:gfs_apcp_accumulated_096h', format: 'image/png', transparent: true});
+    last_cumulated_12h_forecast.setZIndex(2);
     last_cumulated_24h_forecast.setZIndex(2);
     last_cumulated_48h_forecast.setZIndex(2);
     last_cumulated_72h_forecast.setZIndex(2);
     last_cumulated_96h_forecast.setZIndex(2);
-    last_cumulated_120h_forecast.setZIndex(2);
-    last_cumulated_144h_forecast.setZIndex(2);
 
-	var last_cumulated_12h_gpm = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_012h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
+	  var last_cumulated_12h_gpm = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_012h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var last_cumulated_24h_gpm  = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_024h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var last_cumulated_48h_gpm  = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_048h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
     var last_cumulated_72h_gpm  = new L.tileLayer.wms(geoserver, {layers: 'erds:precip_072h', format: 'image/png', transparent: true, maxZoom: 10, minZoom: 2});
@@ -393,23 +249,21 @@
     gpm_alert_h96.setZIndex(2);
 
     var overlays = {
+      "last_cumulated_12h_forecast":last_cumulated_12h_forecast,
       "last_cumulated_24h_forecast":last_cumulated_24h_forecast,
       "last_cumulated_48h_forecast":last_cumulated_48h_forecast,
       "last_cumulated_72h_forecast":last_cumulated_72h_forecast,
       "last_cumulated_96h_forecast":last_cumulated_96h_forecast,
-      "last_cumulated_120h_forecast":last_cumulated_120h_forecast,
-      "last_cumulated_144h_forecast":last_cumulated_144h_forecast,
       "last_cumulated_12h_gpm":last_cumulated_12h_gpm,
       "last_cumulated_24h_gpm":last_cumulated_24h_gpm,
       "last_cumulated_48h_gpm":last_cumulated_48h_gpm,
       "last_cumulated_72h_gpm":last_cumulated_72h_gpm,
       "last_cumulated_96h_gpm":last_cumulated_96h_gpm,
+      "forecast_alert_grid_h12":forecast_alert_grid_h12,
       "forecast_alert_grid_h24":forecast_alert_grid_h24,
       "forecast_alert_grid_h48":forecast_alert_grid_h48,
       "forecast_alert_grid_h72":forecast_alert_grid_h72,
       "forecast_alert_grid_h96":forecast_alert_grid_h96,
-      "forecast_alert_grid_h120":forecast_alert_grid_h120,
-      "forecast_alert_grid_h144":forecast_alert_grid_h144,     
   	  "gpm_alert_h12":gpm_alert_h12,    
   	  "gpm_alert_h24":gpm_alert_h24,
       "gpm_alert_h48":gpm_alert_h48,
@@ -449,43 +303,3 @@
     });
 
   </script>
-
-
-  <!-- Modal -->
-  <!--
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h2 class="modal-title" id="myModalLabel">Disclaimer</h2>
-        </div>
-        <div class="modal-body">
-          <p>The Extreme Rainfall Detection System (ERDS) is the result of a research activity devoted to the monitoring and forecasting of extreme precipitation at global scale. Although a big effort is made in order to improve the reliability of the system, the data and information provided by ERDS are currently experimental and may not be accurate, especially if intended at local scale. The web site and the data contained within it are provided on 'as available' basis, services and data may be not updated and may be withdrawn at any time and without notice. ITHACA does not assume liability for any inaccuracies in the information provided and for failure of the software.</p>
-          <div id="last_trmm"><p>Last analyzed GPM date: <span id="last_gpm_date">
-            <script>
-              function pad(n) {
-                if (n < 10) {
-                  return '0' + n.toString();
-                } else {
-                  return n.toString();
-                }
-              };
-              $("#last_gpm_date").load("/gpm_data/update.txt", function() {
-                var d = new Date($("#last_gpm_date").html().substring(25,41));
-                var gpm_date = pad(d.getDate()) + d.toDateString().substring(3, 8) + d.getFullYear().toString() + ' - ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ' UTC';
-                $("#last_gpm_date").html(gpm_date);
-                });
-            </script></span></p></div>
-          <div id="last_gfs"><p>Last analyzed GFS date: <span id="last_gfs_date"><script> $("#last_gfs_date").load("www_last_analyzed_date_gfs.txt");</script></span></p></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</body>
-</html>
--->
