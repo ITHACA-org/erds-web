@@ -93,7 +93,7 @@
                     var gfs_cum_array = new Array("last_cumulated_12h_forecast", "last_cumulated_24h_forecast", "last_cumulated_48h_forecast", "last_cumulated_72h_forecast", "last_cumulated_96h_forecast");
                     var h = new Array("12", "24", "48", "72", "96");
                     for (var i=0; i < gfs_cum_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gfs_cum_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/apcp_cumulated_'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gfs_cum_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_output/gfs_apcp_accumulated_0'+h[i]+'h.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
                   </script>
                 </ul>
@@ -125,7 +125,7 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingThree">
               <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Alert Forecast (under development)</a>
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Alert Forecast</a>
               </h4>
             </div>
             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -135,7 +135,7 @@
                     var gfs_alert_array = new Array("forecast_alert_grid_h12", "forecast_alert_grid_h24", "forecast_alert_grid_h48", "forecast_alert_grid_h72", "forecast_alert_grid_h96");
                     var h = new Array("12", "24", "48", "72", "96");
                     for (var i = 0; i < gfs_alert_array.length; i++) {
-                      document.write('<li><label><input type="checkbox" id="'+gfs_alert_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_results/gfs_alert_h'+h[i]+'.tif" class="label label-default pull-right">TIFF</a></li>');
+                      document.write('<li><label><input type="checkbox" id="'+gfs_alert_array[i]+'" autocomplete="off"></input><span>FC '+ h[i]+'h</span></label><a href="/gfs_output/gfs_apcp_alerts_0'+h[i]+'h.tif" class="label label-default pull-right">TIFF</a></li>');
                     }
                   </script>
                 </ul>
