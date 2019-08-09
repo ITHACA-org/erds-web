@@ -80,7 +80,7 @@
               }
             };
             $("#last_gfs_date").load("/gfs_output/update.txt", function() {
-              var d = new Date($("#last_gfs_date").html().substring(25,41));
+              var d = new Date($("#last_gfs_date").html().substring(22,38));
               var gfs_date = pad(d.getDate()) + d.toDateString().substring(3, 8) + d.getFullYear().toString() + ' - ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ' UTC';
               $("#last_gfs_date").html(gfs_date);
               });
